@@ -70,9 +70,10 @@ async def help(update:Update,context : ContextTypes.DEFAULT_TYPE):
         )
 
 
-
-
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    pass
+
+async def cid(update:Update,context:ContextTypes.DEFAULT_TYPE):
     chat_id = update.effective_chat.id
     chat_type = update.effective_chat.type
     if chat_type in ['group', 'supergroup', 'channel']:
@@ -80,7 +81,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(
         f"{response_text}"
         )
-
 
 def main():
     os.system("cls")
@@ -98,9 +98,10 @@ def main():
     # application.add_handler(CommandHandler("help_admin", admin_help))
     application.add_handler(CommandHandler("Perm", myperm))
     application.add_handler(CommandHandler("Command", Command_Helper))
-    application.add_handler(CommandHandler("p", LOG))
-
-
+    application.add_handler(CommandHandler("!Log", LOG))
+    application.add_handler(CommandHandler("p", cid))
+    
+    z
     # Donate
     application.add_handler(CommandHandler("buy", invoice))
     application.add_handler(PreCheckoutQueryHandler(precheckout_callback))
